@@ -1,0 +1,5 @@
+{% for picture in pictures %}
+<p><img src="{{ picture.path.url }}" width="300"></p>
+<p>{{ picture.author.username }}</p>
+<p>{{ picture.creation_date }}</p>
+{% endfor %}
