@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from hamster_attack.settings import MEDIA_URL, MEDIA_ROOT
-from twitter.views import AddPicture, PicturesView
+from twitter.views import AddPicture, PicturesView, LikePicture,UnlikePicture
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('picture/add', AddPicture.as_view(), name='add_picture'),
+    path('picture/like/<int:pk>', LikePicture.as_view(), name='like'),
+    path('picture/unlike/<int:pk>', UnlikePicture.as_view(), name='unlike'),
     path('', PicturesView.as_view(), name='pictures'),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

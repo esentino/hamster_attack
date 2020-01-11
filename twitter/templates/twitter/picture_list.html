@@ -2,4 +2,10 @@
 <p><img src="{{ picture.path.url }}" width="300"></p>
 <p>{{ picture.author.username }}</p>
 <p>{{ picture.creation_date }}</p>
+<p>{{ picture.likes.count }}</p>
+<p>{% if user in picture.likes.all %}
+        <a href="{% url 'unlike' pk=picture.id %}">Odlub zdjęcie</a>
+    {% else %}
+    <a href="{% url 'like' pk=picture.id %}">Polub zdjęcie</a>
+    {% endif %}</p>
 {% endfor %}
